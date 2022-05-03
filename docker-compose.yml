@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+    typed-array.php:
+        container_name: typed-array.php
+        build: ./docker/php
+        volumes:
+            - ./:/app
+        restart: unless-stopped
+        command: ["tail", "-f", "/dev/null"]

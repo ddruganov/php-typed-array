@@ -1,0 +1,30 @@
+{
+    "name": "ddruganov/php-typed-array",
+    "description": "Typed array support for php",
+    "type": "library",
+    "require-dev": {
+        "codeception/codeception": "*",
+        "codeception/module-asserts": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ddruganov\\TypedArray\\": "src/",
+            "tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ddruganov",
+            "email": "ddruganov@bk.ru"
+        }
+    ],
+    "fxp-asset": {
+        "enabled": false
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
