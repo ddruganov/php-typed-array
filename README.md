@@ -4,7 +4,7 @@ Typed array support for php
 
 ## Installation
 
-`composer require ddruganov/typed-array`
+`composer require ddruganov/php-typed-array`
 
 ## How-to
 
