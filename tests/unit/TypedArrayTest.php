@@ -5,7 +5,7 @@ namespace tests\unit;
 use Codeception\Test\Unit;
 use ddruganov\TypedArray\TypedArray;
 use ddruganov\TypedArray\TypeDescription;
-use InvalidArgumentException;
+use TypeError;
 use tests\helpers\DummyClass;
 
 final class TypedArrayTest extends Unit
@@ -44,7 +44,7 @@ final class TypedArrayTest extends Unit
         try {
             $array = $this->getClassTypedArray(allowsNull: false);
             $array[] = null;
-        } catch (InvalidArgumentException) {
+        } catch (TypeError) {
             $exceptionCaught = true;
         }
         $this->assertTrue($exceptionCaught);
@@ -67,7 +67,7 @@ final class TypedArrayTest extends Unit
             try {
                 $array = $this->getClassTypedArray();
                 $array[] = $invalidValue;
-            } catch (InvalidArgumentException) {
+            } catch (TypeError) {
                 $exceptionCaught = true;
             }
             $this->assertTrue($exceptionCaught);
@@ -136,7 +136,7 @@ final class TypedArrayTest extends Unit
         try {
             $array = $this->getPrimitiveTypedArray(allowsNull: false);
             $array[] = null;
-        } catch (InvalidArgumentException) {
+        } catch (TypeError) {
             $exceptionCaught = true;
         }
         $this->assertTrue($exceptionCaught);
@@ -159,7 +159,7 @@ final class TypedArrayTest extends Unit
             try {
                 $array = $this->getPrimitiveTypedArray();
                 $array[] = $invalidValue;
-            } catch (InvalidArgumentException) {
+            } catch (TypeError) {
                 $exceptionCaught = true;
             }
             $this->assertTrue($exceptionCaught);

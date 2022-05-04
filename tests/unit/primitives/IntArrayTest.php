@@ -4,7 +4,7 @@ namespace tests\unit\primitives;
 
 use Codeception\Test\Unit;
 use ddruganov\TypedArray\primitives\IntArray;
-use InvalidArgumentException;
+use TypeError;
 use tests\helpers\DummyClass;
 
 final class IntArrayTest extends Unit
@@ -43,7 +43,7 @@ final class IntArrayTest extends Unit
             try {
                 $array = new IntArray();
                 $array[] = $invalidValue;
-            } catch (InvalidArgumentException) {
+            } catch (TypeError) {
                 $exceptionCaught = true;
             }
             $this->assertTrue($exceptionCaught);

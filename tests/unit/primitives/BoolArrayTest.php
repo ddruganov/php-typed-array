@@ -4,7 +4,7 @@ namespace tests\unit\primitives;
 
 use Codeception\Test\Unit;
 use ddruganov\TypedArray\primitives\BoolArray;
-use InvalidArgumentException;
+use TypeError;
 use tests\helpers\DummyClass;
 
 final class BoolArrayTest extends Unit
@@ -43,7 +43,7 @@ final class BoolArrayTest extends Unit
             try {
                 $array = new BoolArray();
                 $array[] = $invalidValue;
-            } catch (InvalidArgumentException) {
+            } catch (TypeError) {
                 $exceptionCaught = true;
             }
             $this->assertTrue($exceptionCaught);

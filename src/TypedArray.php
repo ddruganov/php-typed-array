@@ -4,8 +4,8 @@ namespace ddruganov\TypedArray;
 
 use ArrayAccess;
 use ArrayIterator;
-use InvalidArgumentException;
 use IteratorAggregate;
+use TypeError;
 
 class TypedArray implements ArrayAccess, IteratorAggregate
 {
@@ -36,7 +36,7 @@ class TypedArray implements ArrayAccess, IteratorAggregate
     {
         if (!$this->typeDescription->check($value)) {
             $actualType = is_object($value) ? get_class($value) : gettype($value);
-            throw new InvalidArgumentException("$actualType is not a(n) {$this->typeDescription->getTypeName()}");
+            throw new TypeError("Cannot insert $actualType into an array of {$this->typeDescription->getTypeName()}");
         }
 
         if ($offset === null) {

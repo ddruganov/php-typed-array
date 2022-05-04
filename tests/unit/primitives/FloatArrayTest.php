@@ -4,7 +4,7 @@ namespace tests\unit\primitives;
 
 use Codeception\Test\Unit;
 use ddruganov\TypedArray\primitives\FloatArray;
-use InvalidArgumentException;
+use TypeError;
 use tests\helpers\DummyClass;
 
 final class FloatArrayTest extends Unit
@@ -43,7 +43,7 @@ final class FloatArrayTest extends Unit
             try {
                 $array = new FloatArray();
                 $array[] = $invalidValue;
-            } catch (InvalidArgumentException) {
+            } catch (TypeError) {
                 $exceptionCaught = true;
             }
             $this->assertTrue($exceptionCaught);
