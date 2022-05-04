@@ -23,6 +23,11 @@ class TypedArray implements ArrayAccess, IteratorAggregate, Countable
         return new self($typeDescription);
     }
 
+    public function getTypeDescription()
+    {
+        return $this->typeDescription;
+    }
+
     public function offsetExists(mixed $offset): bool
     {
         return isset($this->values[$offset]);
@@ -60,5 +65,23 @@ class TypedArray implements ArrayAccess, IteratorAggregate, Countable
     public function count(): int
     {
         return count($this->values);
+    }
+
+    public function toPlainArray(): array
+    {
+        return $this->values;
+    }
+
+    public static function from(TypedArray ...$typedArrays)
+    {
+        $reference = $typedArrays[0];
+        $new = new static($reference->getTypeDescription());
+        foreach ($typedArrays as $typedArray) {
+            foreach ($typedArray as $value) {
+                $new[] = $value;
+            }
+        }
+
+        return $new;
     }
 }

@@ -59,3 +59,21 @@ final class DummyArray extends TypedArray
 ```
 
 You're good to go :)
+
+### Merging
+
+```php
+$firstArray = new IntArray();
+$firstArray[0] = 1;
+$firstArray[1] = 2;
+
+$secondArray = new IntArray();
+$secondArray[0] = 3;
+$secondArray[1] = 4;
+
+$thirdArray = new IntArray();
+$thirdArray[0] = 5;
+$thirdArray[1] = 6;
+
+$merged = IntArray::from($firstArray, $secondArray, $thirdArray);
+```

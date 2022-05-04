@@ -207,4 +207,19 @@ final class TypedArrayTest extends Unit
         $array[1] = 1000;
         $this->assertTrue(count($array) === 2);
     }
+
+    public function testMerge()
+    {
+        $array1 = new IntArray();
+        $array1[0] = 100;
+        $array1[1] = 1000;
+
+        $array2 = new IntArray();
+        $array2[0] = 50;
+        $array2[1] = 500;
+
+        $merged = IntArray::from($array1, $array2);
+
+        $this->assertCount(4, $merged);
+    }
 }
