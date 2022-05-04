@@ -10,7 +10,7 @@ use TypeError;
 class TypedArray implements ArrayAccess, IteratorAggregate
 {
     private TypeDescription $typeDescription;
-    private array $values;
+    private array $values = [];
 
     public function __construct(TypeDescription $typeDescription)
     {
