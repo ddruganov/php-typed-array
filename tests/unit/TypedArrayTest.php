@@ -3,6 +3,7 @@
 namespace tests\unit;
 
 use Codeception\Test\Unit;
+use ddruganov\TypedArray\primitives\IntArray;
 use ddruganov\TypedArray\TypedArray;
 use ddruganov\TypedArray\TypeDescription;
 use TypeError;
@@ -197,5 +198,13 @@ final class TypedArrayTest extends Unit
         };
 
         $this->assertTrue(is_a($object->typedArray, TypedArray::class));
+    }
+
+    public function testCount()
+    {
+        $array = new IntArray();
+        $array[0] = 100;
+        $array[1] = 1000;
+        $this->assertTrue(count($array) === 2);
     }
 }

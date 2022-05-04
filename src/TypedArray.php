@@ -4,10 +4,11 @@ namespace ddruganov\TypedArray;
 
 use ArrayAccess;
 use ArrayIterator;
+use Countable;
 use IteratorAggregate;
 use TypeError;
 
-class TypedArray implements ArrayAccess, IteratorAggregate
+class TypedArray implements ArrayAccess, IteratorAggregate, Countable
 {
     private TypeDescription $typeDescription;
     private array $values = [];
@@ -54,5 +55,10 @@ class TypedArray implements ArrayAccess, IteratorAggregate
     public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->values);
+    }
+
+    public function count(): int
+    {
+        return count($this->values);
     }
 }
